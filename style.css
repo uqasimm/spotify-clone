@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* background-color: black; */
+    color: white;
+}
+
+nav{
+    display: flex;
+    height: 9vh;
+    background-color: black;
+    width: 100vw;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 0px 25px;
+    justify-content: space-between;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav .left-nav{
+    display: flex;
+    gap: 30px;
+}
+
+.search .home img{
+    height: 32px;
+    width: 25px;
+}
+
+.input{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    background-color: gray;
+    padding: 5px;
+    width: 23vw;
+    border-radius: 20px;
+}
+
+.input img{
+    height: 25px;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.part-1 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+}
+
+.part-2 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+}
+
+.right-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.part-2 ul li img{
+    height: 18px;
+    position: relative;
+    top: 4px;
+    right: 10px;
+}
