@@ -7,6 +7,7 @@
     <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png"/> -->
+    <link rel="icon" sizes="32x32" type="image/png" href="Resources/favicon.ico" />
 </head>
 
 <body>
@@ -111,29 +112,45 @@
                     <div class="artist">Shakira, Burna Boy</div>
                 </div>
 
-            </div>
-
-            <div class="playbar">
-
-                <div class="song-info">
-
-                </div>
-
-                <div class="song-buttons">
-                    <img src="Resources/previous.svg" alt="previous-song">
-                    <img src="Resources/song-play.svg" alt="play-song">
-                    <img src="Resources/next.svg" alt="next-song">
-                </div>
-
-                <div class="song-time">
-                    
+                <div class="card">
+                    <div class="play">
+                        <img src="Resources/play.svg" alt="play">
+                    </div>
+                    <img src="Resources/Dai-Dai.jpg" alt="Dai-Dai">
+                    <h3>Dai Dai</h3>
+                    <div class="artist">Shakira, Burna Boy</div>
                 </div>
 
             </div>
 
         </div>
-    </main>
 
+        <div class="playbar">
+
+            <div class="seekbar">
+
+                <div class="circle">
+
+                </div>
+
+            </div>
+
+            <div class="song-info">
+
+            </div>
+
+            <div class="song-buttons">
+                <img src="Resources/previous.svg" alt="previous-song">
+                <img class="play-button" src="Resources/song-play.svg" alt="play-song">
+                <img src="Resources/next.svg" alt="next-song">
+            </div>
+
+            <div class="song-time">
+
+            </div>
+
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
