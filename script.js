@@ -43,6 +43,16 @@ async function getSongs() {
     return { songs, images };
 }
 
+function formatTime(totalSeconds) {
+    if (isNaN(totalSeconds) || totalSeconds < 0) return '0:00';
+
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    const paddedSeconds = String(seconds).padStart(2, '0');
+
+    return `${minutes}:${paddedSeconds}`
+};
+
 const playMusic = (trackUrl) => {
     let playBtn = document.querySelector(".play-button");
     let songInfo = document.querySelector(".song-info");
@@ -72,6 +82,8 @@ async function main() {
     let { songs, images } = await getSongs();
     let cardContainer = document.querySelector(".card-container");
     let playBtn = document.querySelector(".play-button");
+    let nextBtn = document.querySelector(".next-button")
+    let prevBtn = document.querySelector(".prev-button")
 
     cardContainer.innerHTML = "";
 
@@ -110,7 +122,7 @@ async function main() {
     });
 
     playBtn.addEventListener("click", () => {
-        if (!currentAudio.src && songs.length > 0) {
+        if (!currentAudio.src && songs.length > 0) {            
             playMusic(songs[0]);
         } else if (currentAudio.paused) {
             currentAudio.play();
@@ -120,6 +132,34 @@ async function main() {
             playBtn.src = "Resources/song-play.svg";
         }
     });
+
+    nextBtn.addEventListener(("click"), () => {
+        
+    })
+
+    currentAudio.addEventListener(("timeupdate"), () => {
+        let currentTimeFormatted = formatTime(currentAudio.currentTime)
+        let durationFormatted = isNaN(currentAudio.duration) ? "0:00" : formatTime(currentAudio.duration);
+
+        document.querySelector(".song-time").innerHTML = `${currentTimeFormatted} / ${durationFormatted}`;
+
+        document.querySelector(".circle").style.left = (currentAudio.currentTime / currentAudio.duration) * 100 + "%"
+    })
+
+    currentAudio.addEventListener(("ended"), () => {
+        currentAudio.currentTime = 0;
+        playBtn.src = "Resources/song-play.svg";
+
+        let durationFormatted = isNaN(currentAudio.duration) ? "0:00" : formatTime(currentAudio.duration);
+        document.querySelector(".song-time").innerHTML = `0:00 / ${durationFormatted}`;
+    })
+
+    document.querySelector(".seekbar").addEventListener(("click"), (e) => {
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
+        document.querySelector(".circle").style.left = percent + "%"
+        currentAudio.currentTime = (currentAudio.duration * percent) / 100
+    })
+
 }
 
 main();

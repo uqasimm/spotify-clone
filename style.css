@@ -482,6 +482,19 @@ nav ul li:hover{
     margin-bottom: 10px;
 }
 
+.song-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    bottom: 5px;
+    padding: 0 15px;
+    color: #121212;
+    font-weight: 500;
+    font-size: 16px;
+}
+
 .song-buttons{
     display: flex;
     justify-content: center;
@@ -494,7 +507,7 @@ nav ul li:hover{
 }
 
 .seekbar {
-    height: 3px;
+    height: 4px;
     width: 98%;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 2px;
@@ -513,5 +526,21 @@ nav ul li:hover{
     position: relative;
     bottom: 5px;
     left: 0%;
-    transition: left 0.1s linear;
+    transition: left 0.2s linear;
+}
+
+.song-info, .song-time{
+    width: 200px;
+}
+
+.song-time{
+    text-align: right;
+}
+
+.next-button{
+    cursor: pointer;
+}
+
+.prev-button{
+    cursor: pointer;
 }
