@@ -78,12 +78,31 @@ const playMusic = (trackUrl) => {
     }
 };
 
+function scrollRow(scrollOffset) {
+    const container = document.querySelector('card-container');
+    container.scrollBy({
+        left: scrollOffset,
+        behavior: 'smooth'
+    });
+}
+
 async function main() {
     let { songs, images } = await getSongs();
     let cardContainer = document.querySelector(".card-container");
     let playBtn = document.querySelector(".play-button");
     let nextBtn = document.querySelector(".next-button")
     let prevBtn = document.querySelector(".prev-button")
+
+    let scrollPrev = document.querySelector(".scroll-button.prev");
+    let scrollNext = document.querySelector(".scroll-button.next");
+
+    scrollPrev.addEventListener("click", () => {
+        cardContainer.scrollBy({ left: -300, behavior: "smooth" });
+    });
+
+    scrollNext.addEventListener("click", () => {
+        cardContainer.scrollBy({ left: 300, behavior: "smooth" });
+    });
 
     cardContainer.innerHTML = "";
 

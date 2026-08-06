@@ -380,9 +380,12 @@ nav ul li:hover{
     border-radius: 7px;
     padding: 20px 35px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.songs{
+.headings{
     display: flex;
     justify-content: space-between;
     align-items: first baseline;
@@ -403,15 +406,21 @@ nav ul li:hover{
     cursor: pointer;
 }
 
-.songs h1{
+.headings h1{
     font-size: 24px;
 }
 
 .card-container{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
+    flex-wrap: nowrap;
+    overflow: auto hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.card-container::-webkit-scrollbar{
+    display: none;
 }
 
 .card{
@@ -422,6 +431,7 @@ nav ul li:hover{
     padding: 10px;
     gap: 5px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .card .play{
@@ -436,6 +446,17 @@ nav ul li:hover{
     position: absolute;
     bottom: 62px;
     right: 15px;
+
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.card:hover .play{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .card .play img{
@@ -543,4 +564,52 @@ nav ul li:hover{
 
 .prev-button{
     cursor: pointer;
+}
+
+.row-wrapper{
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.scroll-button{
+    height: 35px;
+    width: 35px;
+    background-color: #353535;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
+}
+
+.scroll-button.prev {
+    left: 10px;
+}
+
+.scroll-button.next {
+    right: 10px;
+}
+
+.scroll-button img{
+    filter: invert(1);
+    height: 25px;
+}
+
+.row-wrapper:hover .scroll-button{
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-button:hover{
+    background-color: #5a5a5a;
 }
