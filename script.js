@@ -141,7 +141,7 @@ async function main() {
     });
 
     playBtn.addEventListener("click", () => {
-        if (!currentAudio.src && songs.length > 0) {            
+        if (!currentAudio.src && songs.length > 0) {
             playMusic(songs[0]);
         } else if (currentAudio.paused) {
             currentAudio.play();
@@ -153,7 +153,7 @@ async function main() {
     });
 
     nextBtn.addEventListener(("click"), () => {
-        
+
     })
 
     currentAudio.addEventListener(("timeupdate"), () => {
@@ -174,7 +174,7 @@ async function main() {
     })
 
     document.querySelector(".seekbar").addEventListener(("click"), (e) => {
-        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
         document.querySelector(".circle").style.left = percent + "%"
         currentAudio.currentTime = (currentAudio.duration * percent) / 100
     })
@@ -192,6 +192,28 @@ async function main() {
 
     document.querySelector("#right-hamburger").addEventListener(("click"), () => {
         document.querySelector(".media-hamburger").classList.toggle("show-right");
+    })
+
+    let previous = document.querySelector(".prev-button")
+    previous.addEventListener(("click"), () => {
+        let index = songs.indexOf(currentSongUrl)
+        if (index > 0) {
+            playMusic(songs[index - 1])
+        }
+        else if (songs.length > 0){
+            playMusic(songs[songs.length - 1])
+        }
+    })
+
+    let next = document.querySelector(".next-button")
+    next.addEventListener(("click"), () => {
+        let index = songs.indexOf(currentSongUrl)
+        if (index !== -1 && index + 1 < songs.length) {
+            playMusic(songs[index + 1])
+        }
+        else{
+            playMusic(songs[0])
+        }
     })
 
 }

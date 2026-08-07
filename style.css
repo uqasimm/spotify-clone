@@ -655,6 +655,10 @@ h1:hover {
   cursor: pointer;
 }
 
+.right-media li:hover{
+  color: white;
+}
+
 @media (max-width: 1150px) {
   .right-nav {
     gap: 10px;
