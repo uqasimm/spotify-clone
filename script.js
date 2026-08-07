@@ -179,6 +179,21 @@ async function main() {
         currentAudio.currentTime = (currentAudio.duration * percent) / 100
     })
 
+    document.querySelector(".lib-hamburger").addEventListener(("click"), () => {
+        // let sidebar = document.querySelector(".left")
+        // if (sidebar.style.left === "-100%") {
+        //     document.querySelector(".left").style.left = "0"
+        // }
+        // else{
+        //     document.querySelector(".left").style.left = "-100%"
+        // }
+        document.querySelector(".left").classList.toggle("show");
+    })
+
+    document.querySelector("#right-hamburger").addEventListener(("click"), () => {
+        document.querySelector(".media-hamburger").classList.toggle("show-right");
+    })
+
 }
 
 main();

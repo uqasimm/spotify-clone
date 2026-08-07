@@ -60,6 +60,11 @@ nav {
   color: #b3b3b3;
 }
 
+.lib-hamburger {
+  display: none;
+  visibility: hidden;
+}
+
 .logo img {
   cursor: pointer;
 }
@@ -198,6 +203,11 @@ nav .left-nav {
   color: black;
 }
 
+#right-hamburger {
+  display: none;
+  visibility: hidden;
+}
+
 nav ul li {
   cursor: pointer;
 }
@@ -237,7 +247,7 @@ nav ul li:hover {
 
 .left {
   height: calc(100vh - 9vh - 10px);
-  width: 23vw;
+  width: 23%;
   display: flex;
   flex-direction: column;
   background-color: #121212;
@@ -620,23 +630,29 @@ h1:hover {
   background-color: #5a5a5a;
 }
 
-@media (max-width: 850px) {
-  .left {
-    position: absolute;
-    left: -100%;
-    transition: all 0.3s;
-  }
+.media-hamburger {
+  background-color: #121212;
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  top: -3px;
+  padding: 10px;
+  z-index: 10;
+}
 
-  .right {
-    width: 100%;
-    margin: 20px;
-  }
+.right-media {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  list-style: none;
+  color: #b3b3b3;
+}
 
-  .playbar {
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 10vw);
-  }
+.right-media li {
+  cursor: pointer;
 }
 
 @media (max-width: 1150px) {
@@ -688,6 +704,11 @@ h1:hover {
     visibility: hidden;
   }
 
+  .search {
+    position: relative;
+    bottom: 1px;
+  }
+
   .text::placeholder {
     display: none;
     visibility: hidden;
@@ -698,13 +719,83 @@ h1:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
+  .left {
+    position: absolute;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .left.show {
+    left: 0;
+  }
+
+  .right {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .playbar {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 10vw);
+  }
+
+  .lib-hamburger {
+    display: block;
+    visibility: visible;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #1f1f1f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .lib-hamburger img {
+    width: 20px;
+  }
+
+  .left {
+    z-index: 10;
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
   .part-1,
   #bar,
   #install,
   #sign-up {
     display: none;
     visibility: hidden;
+  }
+
+  #right-hamburger {
+    display: block;
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #right-hamburger img {
+    filter: invert(1);
+  }
+
+  .media-hamburger{
+    display: none;
+    visibility: hidden;
+  }
+
+  .media-hamburger.show-right {
+    z-index: 10;
+    display: block;
+    visibility: visible;
   }
 }
 
@@ -724,6 +815,8 @@ h1:hover {
     border-radius: 50%;
     margin: 0;
     padding: 0;
+    position: relative;
+    bottom: 1px;
   }
 
   nav .left-nav {
@@ -743,5 +836,31 @@ h1:hover {
     font-size: 12px;
     background-color: white;
     color: black;
+  }
+
+  .lib-hamburger {
+    display: block;
+    visibility: visible;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: relative;
+    bottom: 2px;
+    background-color: #1f1f1f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .lib-hamburger img {
+    width: 15px;
+  }
+
+  .left {
+    z-index: 10;
+    width: 80%;
   }
 }
